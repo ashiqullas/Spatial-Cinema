@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAppStore, type TheatreView } from '@/store/useAppStore';
 import { WelcomePopup } from './WelcomePopup';
-import { ControlsOverlay } from './ControlsOverlay';
 import { Play, Pause, Volume2, VolumeX, Maximize, Sun, Moon, Eye, MapPin, Video, Activity, EyeOff } from 'lucide-react';
 
 function FPSCounter() {
@@ -143,6 +142,17 @@ export function VisionUI() {
         </div>
       )}
 
+      {/* Walk Hint - VISIBLE WHEN WALKING IN FPV */}
+      {isFirstPerson && !isSitting && (
+        <div className="vision-panel" style={{ position: 'absolute', bottom: 120, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto', display: 'flex', gap: '16px', alignItems: 'center', opacity: 0.8 }}>
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Use <span style={{ color: '#4ade80' }}>W A S D</span> to move</div>
+          <div style={{ width: 4, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.3)' }} />
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Click to <span style={{ color: '#4ade80' }}>Look</span></div>
+          <div style={{ width: 4, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.3)' }} />
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>ESC</span> to free mouse</div>
+        </div>
+      )}
+
       {/* Stand Up Hint - ALWAYS VISIBLE WHEN SITTING IN FPV */}
       {isFirstPerson && isSitting && (
         <div className="vision-panel" style={{ position: 'absolute', bottom: 120, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto' }}>
@@ -265,7 +275,6 @@ export function VisionUI() {
 
       </div>
       
-      <ControlsOverlay />
       <WelcomePopup />
     </div>
   );
