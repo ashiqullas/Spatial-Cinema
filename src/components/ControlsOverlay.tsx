@@ -19,14 +19,12 @@ export function ControlsOverlay() {
         <>
           <ControlHint icon={<MousePointer2 size={16} />} text="Look Around" />
           <ControlHint icon={<kbd>SPACE</kbd>} text="Stand Up" />
-          <ControlHint icon={<kbd>ESC</kbd>} text="Free Mouse" />
         </>
       ) : (
         <>
           <ControlHint icon={<Keyboard size={16} />} text="W A S D to Move" />
           <ControlHint icon={<MousePointer2 size={16} />} text="Look Around" />
           <ControlHint icon={<MousePointer2 size={16} />} text="Click Seat to Sit" />
-          <ControlHint icon={<kbd>ESC</kbd>} text="Free Mouse" />
         </>
       )}
     </div>
