@@ -126,8 +126,8 @@ export function FirstPersonController() {
         });
       }
 
-      // Stand Up (Escape or Space)
-      if ((e.code === 'Escape' || e.code === 'Space') && state.isSitting && !sitTransition.current) {
+      // Stand Up (Space)
+      if (e.code === 'Space' && state.isSitting && !sitTransition.current) {
         state.setIsSitting(false);
         sitTransition.current = true;
         
