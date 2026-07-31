@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --accent-color: #6366f1;
+  --accent-hover: #4f46e5;
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.glass-button.active {
+  background: var(--accent-color);
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+/* Typography utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* --- VISION OS INSPIRED SYSTEM --- */
+
+.vision-theme-dark {
+  --v-bg: rgba(20, 20, 20, 0.45);
+  --v-border: rgba(255, 255, 255, 0.15);
+  --v-text: #ffffff;
+  --v-text-dim: rgba(255, 255, 255, 0.6);
+  --v-hover: rgba(255, 255, 255, 0.1);
+  --v-active: rgba(255, 255, 255, 0.2);
+}
+
+.vision-theme-light {
+  --v-bg: rgba(255, 255, 255, 0.55);
+  --v-border: rgba(255, 255, 255, 0.4);
+  --v-text: #1a1a1a;
+  --v-text-dim: rgba(0, 0, 0, 0.6);
+  --v-hover: rgba(255, 255, 255, 0.4);
+  --v-active: rgba(255, 255, 255, 0.7);
+}
+
+.vision-panel {
+  background: var(--v-bg);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid var(--v-border);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+  border-radius: 24px;
+  color: var(--v-text);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vision-dock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 100px;
+}
+
+.vision-button {
+  background: transparent;
+  border: none;
+  color: var(--v-text);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vision-button:hover {
+  background: var(--v-hover);
+  transform: scale(1.05);
+}
+
+.vision-button:active {
+  background: var(--v-active);
+  transform: scale(0.95);
+}
+
+.vision-button.active {
+  background: var(--v-active);
+  box-shadow: inset 0 0 0 1px var(--v-border);
+}
+
+.vision-pill-button {
+  background: var(--v-hover);
+  border: 1px solid var(--v-border);
+  color: var(--v-text);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.vision-pill-button:hover {
+  background: var(--v-active);
+  transform: scale(1.02);
+}
+
+.vision-slider {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 6px;
+  background: var(--v-border);
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.vision-slider:hover {
+  background: var(--v-hover);
+}
+
+.vision-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--v-text);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.vision-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.vision-input {
+  background: var(--v-hover);
+  border: 1px solid var(--v-border);
+  color: var(--v-text);
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.vision-input::placeholder {
+  color: var(--v-text-dim);
+}
+
+.vision-input:focus {
+  background: var(--v-active);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
+}
+
