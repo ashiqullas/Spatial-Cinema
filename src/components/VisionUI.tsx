@@ -146,7 +146,7 @@ export function VisionUI() {
       {/* Stand Up Hint - ALWAYS VISIBLE WHEN SITTING IN FPV */}
       {isFirstPerson && isSitting && (
         <div className="vision-panel" style={{ position: 'absolute', bottom: 120, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto' }}>
-          <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>[ESC]</span> to stand up</div>
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>[SPACE]</span> to stand up</div>
         </div>
       )}
 
