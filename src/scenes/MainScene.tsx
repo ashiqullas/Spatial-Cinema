@@ -9,6 +9,7 @@ import { TheatreScreen } from '@/components/theatre/TheatreScreen';
 import { TheatreRoom } from '@/components/theatre/TheatreRoom';
 import { TheatreLighting } from '@/components/theatre/TheatreLighting';
 import { TheatreExitSigns } from '@/components/theatre/TheatreExitSigns';
+import { TheatreSpeakers } from '@/components/theatre/TheatreSpeakers';
 
 import { TheatreAudio } from '@/components/theatre/TheatreAudio';
 import { CameraRig } from '@/components/CameraRig';
@@ -32,6 +33,7 @@ function SceneContents() {
           <TheatreScreen />
           <TheatreSeats />
 
+          <TheatreSpeakers />
           <TheatreExitSigns />
           <FirstPersonController />
         </Physics>

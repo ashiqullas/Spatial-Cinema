@@ -200,7 +200,7 @@ export function TheatreLighting() {
       {/* Projector Beam (Volumetric cone of light) */}
       <SpotLight
         ref={projectorLightRef}
-        position={[0, 14.5, 38]}
+        position={[0, 14.5, 14]}
         target={spotTarget}
         color={videoColor}
         intensity={0} // Starts at 0 (assuming paused by default)

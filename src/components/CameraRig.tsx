@@ -19,19 +19,19 @@ export function CameraRig() {
 
     switch (activeView) {
       case 'frontRow':
-        targetX = 0; targetY = 2; targetZ = -10;
+        targetX = -16.5; targetY = 1.7; targetZ = -10;
         lookY = 5;
         break;
       case 'middle':
-        targetX = 0; targetY = 6; targetZ = 0;
-        lookY = 5;
+        targetX = 0; targetY = 1.7; targetZ = -14;
+        lookY = 4;
         break;
       case 'vip':
-        targetX = 0; targetY = 8; targetZ = 5;
+        targetX = 16.5; targetY = 3.5; targetZ = 0;
         lookY = 5;
         break;
       case 'balcony':
-        targetX = 0; targetY = 15; targetZ = 18;
+        targetX = 0; targetY = 8; targetZ = 14;
         lookY = 5;
         break;
       case 'side':
@@ -39,7 +39,7 @@ export function CameraRig() {
         lookY = 5;
         break;
       case 'top':
-        targetX = 0; targetY = 25; targetZ = 5;
+        targetX = 0; targetY = 18; targetZ = 5;
         lookY = 0; lookZ = -10;
         break;
     }

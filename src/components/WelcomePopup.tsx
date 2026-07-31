@@ -41,7 +41,7 @@ export function WelcomePopup() {
             <h3 style={{ margin: '0 0 12px 0', color: '#fff', fontSize: '16px' }}>How to Use:</h3>
             <ul style={{ margin: 0, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <li><strong>Look Around:</strong> Click and drag your mouse.</li>
-              <li><strong>Move:</strong> Use <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> keys (First Person Mode).</li>
+              <li><strong>Move:</strong> Press <kbd>F</kbd> to enter First Person. Use <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> keys to walk.</li>
               <li><strong>Sit Down:</strong> Hover over any red seat and click to sit down. Press <kbd>SPACE</kbd> to stand up.</li>
               <li><strong>Quick Views:</strong> Use the camera controls at the bottom of the screen to quickly jump to the VIP section or Balcony.</li>
             </ul>

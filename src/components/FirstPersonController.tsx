@@ -220,7 +220,24 @@ export function FirstPersonController() {
       }
       
       if (bodyRef.current && !isSitting) {
-        bodyRef.current.setTranslation({ x: camera.position.x, y: camera.position.y - 1, z: camera.position.z }, true);
+        // Raycast straight down from the camera to find the exact floor height
+        const downRay = new THREE.Raycaster(camera.position, new THREE.Vector3(0, -1, 0));
+        const intersects = downRay.intersectObjects(scene.children, true);
+        
+        // Find the first solid object (usually the floor or ramp), ignoring the seats themselves
+        const hit = intersects.find(i => {
+          if (i.object.name && i.object.name.includes('TheatreSeats')) return false;
+          return i.object.visible || i.object.parent?.type === 'RigidBody';
+        });
+        
+        let targetY = camera.position.y - 1; // Default fallback
+        if (hit && hit.distance < 10) {
+           // Snap capsule center exactly 0.9m above the floor point
+           targetY = (camera.position.y - hit.distance) + 0.9;
+        }
+
+        bodyRef.current.setTranslation({ x: camera.position.x, y: targetY, z: camera.position.z }, true);
+        bodyRef.current.setLinvel({ x: 0, y: 0, z: 0 }, true); // Stop any existing falling momentum
       }
     } else {
       document.exitPointerLock();

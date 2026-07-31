@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Html } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 import YouTube, { type YouTubeEvent, type YouTubeProps } from 'react-youtube';
 import { useAppStore } from '@/store/useAppStore';
 
@@ -28,6 +30,31 @@ export function YouTubePlayer() {
     }, 500);
     return () => clearInterval(interval);
   }, [isPlaying, setCurrentTime]);
+
+  // Spatial Audio Simulation
+  const lastVolumeUpdate = useRef(0);
+  const screenPos = useRef(new THREE.Vector3(0, 5, -20)); // Center of screen/speakers
+
+  useFrame(({ camera, clock }) => {
+    if (!playerRef.current || !isPlaying || isMuted) return;
+    
+    // Throttle volume updates to avoid spamming the iframe API
+    if (clock.elapsedTime - lastVolumeUpdate.current > 0.3) {
+      lastVolumeUpdate.current = clock.elapsedTime;
+      
+      const dist = camera.position.distanceTo(screenPos.current);
+      
+      // Calculate multiplier (1.0 at screen, drops to 0.3 at the back wall Z=16)
+      const maxDist = 38; // Approx max distance from front to back of room
+      let mult = 1.0 - (dist / maxDist) * 0.7; 
+      mult = Math.max(0.3, Math.min(1.0, mult)); // Clamp between 0.3 and 1.0
+      
+      const targetVolume = volume * mult;
+      
+      // The iframe API expects an integer between 0 and 100
+      playerRef.current.setVolume(Math.round(targetVolume));
+    }
+  });
 
   const onReady: YouTubeProps['onReady'] = (event: YouTubeEvent) => {
     playerRef.current = event.target;

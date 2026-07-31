@@ -43,11 +43,13 @@ export function VisionUI() {
     currentTime, duration,
     setVideoId,
     activeView, setActiveView,
-    isFirstPerson, setIsFirstPerson,
     isSitting, hoveredSeat, lastSeatId,
     uiTheme, setUiTheme,
     toggleUI
   } = useAppStore();
+
+  const setIsFirstPerson = useAppStore((state) => state.setIsFirstPerson);
+  const isFirstPerson = useAppStore((state) => state.isFirstPerson);
 
   const [urlInput, setUrlInput] = useState('');
 
@@ -147,9 +149,16 @@ export function VisionUI() {
         <div className="vision-panel" style={{ position: 'absolute', top: 32, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto', display: 'flex', gap: '16px', alignItems: 'center', opacity: 0.8 }}>
           <div style={{ fontSize: 14, fontWeight: 600 }}>Use <span style={{ color: '#4ade80' }}>W A S D</span> to move</div>
           <div style={{ width: 4, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.3)' }} />
-          <div style={{ fontSize: 14, fontWeight: 600 }}>Click to <span style={{ color: '#4ade80' }}>Look</span></div>
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Mouse to <span style={{ color: '#4ade80' }}>Look Around</span></div>
           <div style={{ width: 4, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.3)' }} />
-          <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>ESC</span> to free mouse</div>
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>F</span> to exit</div>
+        </div>
+      )}
+
+      {/* Enter FPV Hint - VISIBLE WHEN NOT IN FPV */}
+      {!isFirstPerson && (
+        <div className="vision-panel" style={{ position: 'absolute', top: 32, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto', opacity: 0.8 }}>
+          <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>[F]</span> to walk around (First Person)</div>
         </div>
       )}
 
@@ -261,7 +270,7 @@ export function VisionUI() {
               <button 
                 className="vision-button" 
                 onClick={() => setUiTheme(uiTheme === 'dark' ? 'light' : 'dark')}
-                title="Toggle UI Theme"
+                title="Toggle Theme"
               >
                 {uiTheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               </button>
