@@ -45,8 +45,7 @@ export function VisionUI() {
     isFirstPerson, setIsFirstPerson,
     isSitting, hoveredSeat, lastSeatId,
     uiTheme, setUiTheme,
-    toggleUI,
-    ambilightStatus
+    toggleUI
   } = useAppStore();
 
   const [urlInput, setUrlInput] = useState('');
@@ -119,7 +118,7 @@ export function VisionUI() {
       {/* Top Bar (Title, FPS, Show/Hide UI) - ALWAYS VISIBLE TO ALLOW UN-HIDING */}
       <div style={{ position: 'absolute', top: 24, left: 32, right: 32, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <h1 className="text-gradient" style={{ margin: 0, fontSize: '24px', fontWeight: 700, pointerEvents: 'auto', opacity: isUIVisible ? 1 : 0, transition: 'opacity 0.3s' }}>IMAX Vision</h1>
+          <h1 className="text-gradient" style={{ margin: 0, fontSize: '24px', fontWeight: 700, pointerEvents: 'auto', opacity: isUIVisible ? 1 : 0, transition: 'opacity 0.3s' }}>Spatial Cinema</h1>
         </div>
         <div style={{ display: 'flex', gap: 12, pointerEvents: 'auto' }}>
           <FPSCounter />

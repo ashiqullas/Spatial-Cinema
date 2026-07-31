@@ -10,7 +10,6 @@ import { TheatreRoom } from '@/components/theatre/TheatreRoom';
 import { TheatreLighting } from '@/components/theatre/TheatreLighting';
 import { TheatreExitSigns } from '@/components/theatre/TheatreExitSigns';
 
-import { TheatreAtmosphere } from '@/components/theatre/TheatreAtmosphere';
 import { TheatreAudio } from '@/components/theatre/TheatreAudio';
 import { CameraRig } from '@/components/CameraRig';
 
@@ -43,9 +42,9 @@ function SceneContents() {
 
       {/* Post-Processing Pipeline - Scales with performance */}
       <EffectComposer multisampling={performanceLevel > 0.5 ? 4 : 0}>
-        {performanceLevel > 0.5 && <N8AO distanceFalloff={1} aoRadius={1} intensity={2} />}
+        {performanceLevel > 0.5 ? <N8AO distanceFalloff={1} aoRadius={1} intensity={2} /> : <></>}
         <Bloom luminanceThreshold={0.5} mipmapBlur intensity={1.5} />
-        {performanceLevel > 0.5 && <Noise opacity={0.03} />}
+        {performanceLevel > 0.5 ? <Noise opacity={0.03} /> : <></>}
         <Vignette eskil={false} offset={0.1} darkness={1.1} />
         <ToneMapping mode={THREE.ACESFilmicToneMapping} />
       </EffectComposer>

@@ -183,7 +183,6 @@ export function FirstPersonController() {
     const handleKeyUp = (e: KeyboardEvent) => { keys.current[e.code] = false; };
     
     const handleMouseMove = (e: MouseEvent) => {
-      const state = useAppStore.getState();
       // Allow looking around even while sitting, just disable it during the transition!
       if (document.pointerLockElement === gl.domElement && !sitTransition.current) {
         mouseMove.current.movementX = e.movementX;
