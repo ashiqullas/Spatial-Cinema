@@ -45,7 +45,8 @@ export function VisionUI() {
     isFirstPerson, setIsFirstPerson,
     isSitting, hoveredSeat, lastSeatId,
     uiTheme, setUiTheme,
-    toggleUI
+    toggleUI,
+    ambilightStatus
   } = useAppStore();
 
   const [urlInput, setUrlInput] = useState('');

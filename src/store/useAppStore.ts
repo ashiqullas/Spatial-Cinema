@@ -49,6 +49,12 @@ interface AppState {
   // UI State
   uiTheme: 'dark' | 'light';
   setUiTheme: (theme: 'dark' | 'light') => void;
+  
+  // Ambilight State
+  videoColor: string;
+  setVideoColor: (color: string) => void;
+  ambilightStatus: string | null;
+  setAmbilightStatus: (status: string | null) => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -87,4 +93,10 @@ export const useAppStore = create<AppState>((set) => ({
   
   uiTheme: 'dark',
   setUiTheme: (theme) => set({ uiTheme: theme }),
+  
+  videoColor: '#e2f1ff',
+  setVideoColor: (color) => set({ videoColor: color }),
+  
+  ambilightStatus: null,
+  setAmbilightStatus: (status) => set({ ambilightStatus: status }),
 }));
