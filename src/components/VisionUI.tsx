@@ -144,7 +144,7 @@ export function VisionUI() {
 
       {/* Walk Hint - VISIBLE WHEN WALKING IN FPV */}
       {isFirstPerson && !isSitting && (
-        <div className="vision-panel" style={{ position: 'absolute', bottom: 120, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto', display: 'flex', gap: '16px', alignItems: 'center', opacity: 0.8 }}>
+        <div className="vision-panel" style={{ position: 'absolute', top: 32, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto', display: 'flex', gap: '16px', alignItems: 'center', opacity: 0.8 }}>
           <div style={{ fontSize: 14, fontWeight: 600 }}>Use <span style={{ color: '#4ade80' }}>W A S D</span> to move</div>
           <div style={{ width: 4, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.3)' }} />
           <div style={{ fontSize: 14, fontWeight: 600 }}>Click to <span style={{ color: '#4ade80' }}>Look</span></div>
@@ -155,7 +155,7 @@ export function VisionUI() {
 
       {/* Stand Up Hint - ALWAYS VISIBLE WHEN SITTING IN FPV */}
       {isFirstPerson && isSitting && (
-        <div className="vision-panel" style={{ position: 'absolute', bottom: 120, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto' }}>
+        <div className="vision-panel" style={{ position: 'absolute', top: 32, left: '50%', transform: 'translateX(-50%)', padding: '12px 24px', pointerEvents: 'auto' }}>
           <div style={{ fontSize: 14, fontWeight: 600 }}>Press <span style={{ color: '#4ade80' }}>[SPACE]</span> to stand up</div>
         </div>
       )}
