@@ -4,7 +4,6 @@ import { useAppStore } from '@/store/useAppStore';
 
 export function TheatreRoom() {
   const performanceLevel = useAppStore((state) => state.performanceLevel);
-
   return (
     <group>
       {/* Carpet Floor */}
@@ -38,17 +37,16 @@ export function TheatreRoom() {
       {/* Ceiling */}
       <RigidBody type="fixed" colliders="cuboid">
         <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 20, 0]} receiveShadow>
-          <planeGeometry args={[100, 100]} />
-          <meshStandardMaterial color="#1a0a0d" roughness={1} />
+          <planeGeometry args={[50, 40]} />
+          <meshStandardMaterial color="#050505" roughness={0.9} />
         </mesh>
       </RigidBody>
 
-      {/* Acoustic Walls with Gold Accents */}
       {/* Left Wall */}
       <RigidBody type="fixed" colliders="cuboid">
         <mesh position={[-25, 10, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
-          <planeGeometry args={[100, 20]} />
-          <meshStandardMaterial color="#3a0510" roughness={0.8} />
+          <planeGeometry args={[40, 20]} />
+          <meshStandardMaterial color="#1a0a0a" roughness={1} />
         </mesh>
       </RigidBody>
       
@@ -61,8 +59,8 @@ export function TheatreRoom() {
       {/* Right Wall */}
       <RigidBody type="fixed" colliders="cuboid">
         <mesh position={[25, 10, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
-          <planeGeometry args={[100, 20]} />
-          <meshStandardMaterial color="#3a0510" roughness={0.8} />
+          <planeGeometry args={[40, 20]} />
+          <meshStandardMaterial color="#1a0a0a" roughness={1} />
         </mesh>
       </RigidBody>
       
@@ -76,7 +74,15 @@ export function TheatreRoom() {
       <RigidBody type="fixed" colliders="cuboid">
         <mesh position={[0, 10, 16]} rotation={[0, Math.PI, 0]} receiveShadow>
           <planeGeometry args={[50, 20]} />
-          <meshStandardMaterial color="#2a050d" roughness={0.9} />
+          <meshStandardMaterial color="#d4af37" metalness={0.8} roughness={0.2} />
+        </mesh>
+      </RigidBody>
+
+      {/* Front Wall (Behind Screen) */}
+      <RigidBody type="fixed" colliders="cuboid">
+        <mesh position={[0, 10, -20]} receiveShadow>
+          <planeGeometry args={[50, 20]} />
+          <meshStandardMaterial color="#0a0305" roughness={1} />
         </mesh>
       </RigidBody>
 
@@ -156,7 +162,7 @@ export function TheatreRoom() {
             return (
               <mesh key={`platform-${i}`} position={[0, y / 2, z]} receiveShadow>
                 <boxGeometry args={[30, y, 1.5]} />
-                <meshStandardMaterial color="#1a0a0a" roughness={0.9} />
+                <meshStandardMaterial color="#2a050d" roughness={0.9} />
               </mesh>
             );
           }
