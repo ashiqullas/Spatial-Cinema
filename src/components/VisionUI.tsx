@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAppStore, type TheatreView } from '@/store/useAppStore';
+import { WelcomePopup } from './WelcomePopup';
 import { Play, Pause, Volume2, VolumeX, Maximize, Sun, Moon, Eye, MapPin, Video, Activity, EyeOff } from 'lucide-react';
 
 function FPSCounter() {
@@ -262,6 +263,8 @@ export function VisionUI() {
         </div>
 
       </div>
+      
+      <WelcomePopup />
     </div>
   );
 }

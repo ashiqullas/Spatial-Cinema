@@ -55,6 +55,9 @@ interface AppState {
   setVideoColor: (color: string) => void;
   ambilightStatus: string | null;
   setAmbilightStatus: (status: string | null) => void;
+  
+  hasSeenWelcome: boolean;
+  setHasSeenWelcome: (seen: boolean) => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -99,4 +102,7 @@ export const useAppStore = create<AppState>((set) => ({
   
   ambilightStatus: null,
   setAmbilightStatus: (status) => set({ ambilightStatus: status }),
+  
+  hasSeenWelcome: false,
+  setHasSeenWelcome: (seen) => set({ hasSeenWelcome: seen }),
 }));
